@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+	<div class="col-md">
+		<div class="row">
+			<div class="row">
+				<div class="col">
+					<div class="card card-body">
+			
+						<form method="get">
+							{{myFilter.form}}
+			
+						<button class="btn btn-primary" type="submit">Search</button>
+					  </form>
+			
+					</div>
+				</div>
+			</div>
+		<hr>
+		<div class="card card-body">
+			<h5>Device Phones:</h5>
+			<table class="table">
+				<tr>
+					<th>Device Description</th>
+					<th>MAC</th>
+					<th>Device customer</th>
+
+				</tr>
+
+				{% for device in devices %}
+					<tr>
+						<td>{{device.description}}</td>
+						<td>{{device.mac}}</td>
+						<td>{{device.customer.description}}</td>
+						<td>{{dss.value}}</td>
+
+						<td><a class="btn btn-sm btn-info" href="{% url 'admin_device' device.id %}">Device admin</a></td>
+
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Device details:</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Customer</th>
+				</tr>
+					<tr>
+						<td>{{device.customer.description}}</td>
+                    </tr>
+                    <tr>
+                        <th>Device vendor</th>
+                    </tr>
+                        <tr>
+                            <td>{{device.vendor.name}}</td>
+                        </tr>
+                    <tr>
+                        <th>Model</th>
+                    </tr>
+                        <tr>
+                            <td>{{device.device_model.name}}</td>
+						</tr>
+					<tr>
+						<th>Device mac</th>
+					</tr>
+						<tr>
+							<td>{{device.mac}}</td>
+						</tr>
+					<tr>
+						<th>Device description</th>
+					</tr>
+						<tr>
+							<td>{{device.description}}</td>
+						</tr>
+	
+			</table>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'edit_device' device.id %}">Edit</a>
+			<div class="card card-body">
+				<table class="table table-sm">
+					<tr>
+						<th>Last update</th>
+					</tr>
+						<tr>
+							<td>{{device.cfg_last_update}}</td>
+						</tr>
+	
+				</table>
+			</div>
+
+		</div>
+	</div>
+	<div class="col-md-7">
+        <h5>DSS list</h5>
+        <hr>
+        <h6>Count of dss : {{total_dss}}</h6>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>type</th>
+					<th>label</th>
+					<th>key</th>
+					<th>value</th>
+				</tr>
+
+				{% for dss in dsss %}
+					<tr>
+						<td>{{dss.dss_type}}</td>
+						<td>{{dss.label}}</td>
+                        <td>{{dss.key}}</td>
+                        <td>{{dss.value}}</td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_dss' dss.id device.id%}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+			
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_dss' device.id %}">Create dss</a>
+		</div>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<h5>Extensions</h5>
+				<tr>
+					<th>name</th>
+					<th>extension</th>
+				</tr>
+				{% for extension in extensions %}
+					<tr>
+						<td>{{extension.name}}</td>
+						<td>{{extension.extension}}</td>
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+</div>
+
+	<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'config' device.id %}">Config</a>
+
+
+    </div>
+
+{% endblock %}
