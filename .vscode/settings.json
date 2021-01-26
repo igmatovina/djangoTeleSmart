@@ -31,6 +31,8 @@
         "venv.bak{,/**}",
         ".vscode{,/**}"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/8ca325ae-0c44-44ef-9cee-ac78ed7acccc/resourceGroups/resursi/providers/Microsoft.Web/sites/telsmartigormatovina",
+    "appService.deploySubpath": "."
 
 }
