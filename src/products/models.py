@@ -46,9 +46,7 @@ class Device(models.Model):
 class Extension(models.Model):
     name = models.CharField(max_length=10, null=True, blank=True)
     extension = models.IntegerField(blank=True, null=True)
-
     device = models.ForeignKey(Device,  null=True, on_delete=models.SET_NULL)   
-    customer = models.ForeignKey(Customer,  null=True, on_delete=models.SET_NULL)     
 
 class Dss(models.Model):
     DSS_TYPE=(

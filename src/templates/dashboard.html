@@ -78,7 +78,7 @@
 						<td>{{dss.label}}</td>
                         <td>{{dss.key}}</td>
                         <td>{{dss.value}}</td>
-                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_dss' dss.id device.id%}">Delete</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_dss' dss.id %}">Delete</a></td>
 
 					</tr>
 				{% endfor %}
